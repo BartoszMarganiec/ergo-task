@@ -1,0 +1,302 @@
+body {
+  background: #efefef;
+  padding: 0px;
+  margin: 0px;
+}
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  background: white;
+  width: 1024px;
+  display: flex;
+  flex-direction: column;
+  margin: 0px auto;
+  height: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+  .header {
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    border-bottom: 3px dashed #efefef;
+
+    .date {
+      float: right;
+    }
+  }
+}
+
+
+.log-button {
+  width: 20%;
+  margin: 10px 5%;
+  border-radius: 4  px;
+  text-align: center;
+
+  &.log-out {
+    padding: 10px;
+  }
+
+  &.log-in > p {
+    //padding: 10px 0px 0px;
+  }
+
+
+  &:hover {
+      &.log-in {
+          background: green;
+      }
+      &.log-out {
+        background: red;
+      }
+
+    color: white;
+    cursor: pointer;
+  }
+}
+
+.log-in-info {
+  font-size: 10px;
+  //padding: 0px 0px 10px;
+}
+
+.searcher {
+  form {
+    width: 100%;
+
+    label {
+      width: 15%;
+      padding: 10px;
+    }
+
+    input {
+      width: calc(70% - 10px);
+      padding: 10px;
+      margin-left: 10px;
+    }
+
+    button {
+      padding: 10px;
+      width: 15%;
+    }
+  }
+}
+
+
+#main {
+  width: 100%;
+
+  .searcher {
+    width: 50%;
+    margin: 10px auto;
+    text-align: center;
+
+    button {
+      margin-top: 10px;
+      width: 30%;
+    }
+  }
+
+  .error {
+    text-align: center;
+    padding: 10px;
+  }
+}
+
+#header > .searcher {
+  width: 70%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.item {
+  padding: 10px;
+  border: 1px solid #dddddd;
+  margin: 10px;
+  cursor: pointer;
+
+  &:hover {
+    background: #efefef;
+  }
+}
+
+.full-item, .answer {
+  border: 1px solid #dddddd;
+  margin: 10px;
+
+  .header {
+    background: #ddd;
+    display: block;
+  }
+
+  .accepted-answer {
+    color: green;
+    float: right;
+  }
+
+  .title {
+    text-align: center;
+    padding: 5px;
+    font-weight: bold;
+  }
+
+  .link {
+    text-align: center;
+  }
+
+  .body {
+    padding: 10px;
+    word-wrap: break-word;
+
+    img {
+      max-width: 100%;
+    }
+
+    pre {
+      display: block;
+      unicode-bidi: embed;
+      font-family: monospace;
+      white-space: pre;
+      overflow: auto;
+      background: #efefef;
+      padding: 10px;
+    }
+
+    code {
+      font-family: monospace;
+      unicode-bidi: embed;
+    }
+  }
+
+  .back {
+    margin: 10px;
+    text-align: right;
+    color: blue;
+    cursor: pointer;
+  }
+
+}
+
+.results.empty {
+
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+
+}
+
+.loader-lds {
+  text-align: center;
+}
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 64px;
+  height: 64px;
+}
+.lds-ring div {
+  text-align: center;
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  margin: 6px;
+  border: 6px solid #000;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #000 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.answers > .header {
+
+  text-align: center;
+  font-size: 20px;
+  padding: 10px;
+
+}
+
+.no-answers {
+  text-align: center;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .app {
+    width: 1024px;
+  }
+
+  #header > .searcher {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .app {
+    width: 100%;
+
+    .header {
+      flex-direction: column;
+
+      .searcher {
+        text-align: center;
+
+        button {
+          margin-top: 5px;
+          min-width: 80%;
+        }
+      }
+    }
+
+    #main {
+      .searcher {
+        text-align: center;
+        width: 100%;
+
+
+        button {
+          margin-top: 5px;
+          width: 80%;
+        }
+      }
+    }
+  }
+
+  .log-button {
+    display: block;
+    width: 80%;
+    margin: 10px auto;
+  }
+
+  #header > .searcher {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 360px) {
+  .app {
+    width: 360px;
+  }
+}
